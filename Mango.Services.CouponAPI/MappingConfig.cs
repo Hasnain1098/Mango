@@ -12,7 +12,6 @@ namespace Mango.Services.CouponAPI
         {
             CreateMap<CouponDto, Coupon>().ReverseMap();
             CreateMap<Coupon, CouponDto>().ReverseMap();
-
         }
     }
 }

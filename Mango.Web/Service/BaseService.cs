@@ -1,5 +1,6 @@
 ﻿using Mango.Web.Models.DTOs;
 using Mango.Web.Service.IService;
+using Mango.Web.Utility;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
@@ -23,7 +24,7 @@ namespace Mango.Web.Service
 
                 HttpClient client = _httpClientFactory.CreateClient("MongoAPI");
                 HttpRequestMessage message = new();
-                message.Headers.Add("Accept", "application/json");
+                //message.Headers.Add("Accept", "application/json");
 
                 message.RequestUri = new Uri(requestDto.Url);
                 if (requestDto.Data != null)
@@ -74,7 +75,7 @@ namespace Mango.Web.Service
                 var dto = new ResponseDto
                 {
                     Message = ex.Message.ToString(),
-                    IsSuccess = false 
+                    IsSuccess = false
                 };
                 return dto;
             }
