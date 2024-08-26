@@ -1,0 +1,38 @@
+﻿using Mango.Web.Service.IService;
+using Microsoft.AspNetCore.Mvc;
+using Mango.Web.Models;
+using Mango.Web.Models.DTOs;
+
+namespace Mango.Web.Controllers
+{
+    public class AuthController : Controller
+    {
+        private readonly IAuthService _authService;
+
+
+        public AuthController(IAuthService authService)
+        {
+            _authService = authService;
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            LoginRequestDto loginRequestDto = new LoginRequestDto();
+            return View(loginRequestDto);
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        
+        public IActionResult Logout()
+        {
+            return View();
+        }
+
+
+    }
+}
